@@ -1,0 +1,26 @@
+{
+    "name": "@judge2020/workers-link-shortener",
+    "version": "0.0.1",
+    "description": "Link shortener hosted via Cloudflare",
+    "private": true,
+    "scripts": {
+        "build": "webpack"
+    },
+    "author": "Hunter <8601934+judge2020@users.noreply.github.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/node": "^12.6.8",
+        "@udacity/types-service-worker-mock": "^1.0.1",
+        "cloudflare-worker-mock": "^1.0.1",
+        "prettier": "^1.17.0",
+        "ts-loader": "^6.0.4",
+        "types-cloudflare-worker": "^1.0.1",
+        "typescript": "^3.5.3",
+        "webpack": "^4.36.1",
+        "webpack-cli": "^3.3.6"
+    },
+    "dependencies": {
+        "cloudflare-workers-toolkit": "^0.1.0",
+        "serverless-cloudflare-workers": "^1.2.0"
+    }
+}
