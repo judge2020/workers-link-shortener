@@ -7,7 +7,7 @@
                 <div class="column is-one-fifth"/>
                 <div class="column is-three-fifths">
                     <div class="box is-one-fifth">
-                        <form>
+                        <form @submit.prevent="submit">
                             <div class="field">
                                 <label class="label">Shortcode</label>
                                 <div class="control">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="control has-text-centered">
-                                <button class="button is-link" @click.preventDefault="createClicked">Submit</button>
+                                <button class="button is-link" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -48,7 +48,7 @@
             }
         },
         methods: {
-            createClicked () {
+            submit () {
                 window.axios.post('create', { 'path': this.shortcode, 'target': this.target }).then(res => {
                     if (res.status === 200) {
                         alert(res.data);
