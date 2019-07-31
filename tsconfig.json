@@ -23,8 +23,7 @@
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost",
-        "webworker"
+      "scripthost"
     ]
   },
   "include": [
