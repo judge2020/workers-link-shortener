@@ -8,7 +8,7 @@ module.exports = {
     rules: [
       {
         loader: 'ts-loader',
-        exclude: [/node_modules/],
+        exclude: [/node_modules/, /src/, /outfrontend/],
         options: {
           configFile: 'worker.tsconfig.json',
         },
