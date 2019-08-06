@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import NewLink from './views/NewLink.vue'
+import ListLinks from '@/views/ListLinks.vue'
 
 Vue.use(Router)
 
@@ -11,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/list',
+      name: 'list',
+      component: ListLinks
     },
     {
       path: '/create',

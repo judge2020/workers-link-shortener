@@ -24,6 +24,7 @@
         "vue-router": "^3.0.3"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.10.1",
         "@types/node": "^12.6.8",
         "@udacity/types-service-worker-mock": "^1.0.1",
         "@vue/cli-plugin-babel": "^3.9.2",

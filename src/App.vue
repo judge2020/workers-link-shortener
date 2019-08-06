@@ -14,6 +14,7 @@
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
                         <router-link class="navbar-item" to="/">Home</router-link>
+                        <router-link class="navbar-item" to="/list">All Links</router-link>
                         <router-link class="navbar-item" to="/create">New Link</router-link>
                     </div>
                 </div>
@@ -26,7 +27,7 @@
 
 <style lang="scss">
     @import "~bulma/css/bulma.css";
-
+    @import "~@fortawesome/fontawesome-free/css/all.css";
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;

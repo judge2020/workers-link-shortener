@@ -34,9 +34,10 @@
 
     </div>
 </template>
-<script>
+<script lang="ts">
 
-    import HeroHeader from '@/components/HeroHeader'
+    import HeroHeader from '@/components/HeroHeader.vue'
+    import Axios from '@/axios'
 
     export default {
         name: 'NewLink',
@@ -49,9 +50,14 @@
         },
         methods: {
             submit () {
-                window.axios.post('create', { 'path': this.shortcode, 'target': this.target }).then(res => {
+                // @ts-ignore
+                Axios.post('create', { 'path': this.shortcode, 'target': this.target }).then(res => {
                     if (res.status === 200) {
                         alert(res.data);
+                        // @ts-ignore
+                        this.shortcode = "";
+                        // @ts-ignore
+                        this.target  = "";
                     }
                 });
             },
