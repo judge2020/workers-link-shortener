@@ -7,33 +7,26 @@ This is still a WIP and feature-incomplete. Analytics are not implemented.
 
 #### Usage
 
-No build artifacts will be available while the API may break at any time.
+Requirements: [node/npm](https://nodejs.org) v10+, Cloudflare account with the $5/month workers subscription.
 
-1. clone this repo
-2. run `npm i`
-3. run `npm build`
-4. [Create a KV namespace](https://dash.cloudflare.com/?account=workers/kv-store) at Cloudflare (name it whatever you wish)
+1. clone or download this repo
+2. run `npm install`
+3. run `npm run buildworker`
+4. [Create a KV namespace](https://dash.cloudflare.com/?account=workers/kv/namespaces) at Cloudflare (name it whatever you wish).
 5. in Cloudflare, create a new workers script and paste the entire contents of `dist/worker.js`.
-5. set up routes (if non-`workers.dev` subdomain)
-6. add a KV binding with the variable name set to "LINKS_KV", and targeting the KV namespace you made earlier
+6. set up routes, or if using a `workers.dev` subdomain, set up a subdomain to use.
+7. add a KV binding with the variable name set to "LINKS_KV", and targeting the KV namespace you made earlier.
 
-#### Enabling frontend UI
+#### Enabling the frontend UI
 
 The frontend UI uses [cloudflare-file-hosting](https://github.com/judge2020/cloudflare-file-hosting), which requires extra setup to upload the files correctly.
 
-First create a (new) KV namespace for the files
-
-1. copy `.env.example` to `.env` and fill in all values  
-2. run `npm run build` to build the ui
-3. run `npm run uploadfrontend` to upload the built vue.js project to the KV namespace.
-4. make sure the KV binding on your script is "FILES_KV".
- 
+1. [Create another KV namespace](https://dash.cloudflare.com/?account=workers/kv/namespaces)
+2. copy `.env.example` to `.env` and fill in all values
+3. run `npm run build` to build the UI
+4. run `npm run uploadfrontend` to upload the built frontend to the KV namespace.
+5. add a KV binding to your script with the variable `FILES_KV` targeting the namespace.
 
 #### Preventing unauthorized shortlinks
 
-The admin interface has no authentication currently. It is recommended to set up Cloudflare access for the `/admin` path. Basic auth is planned.
-
-UI for creating shortlinks is also planned, currently you'll need to run a `fetch` in your browser's JS console to make the post request with the Access authorization.
-
-
-
+The admin interface has no authentication currently, so it is highly recommended to set up Cloudflare access for the `/admin` path.
