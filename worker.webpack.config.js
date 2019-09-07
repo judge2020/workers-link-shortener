@@ -4,13 +4,16 @@ module.exports = {
   devtool: 'hidden-source-map', // eval() doesn't work in CF's workers
   entry: './worker/worker.ts',
   mode: process.env.NODE_ENV || 'development',
+  optimization: {
+      minimize: false,
+  },
   module: {
     rules: [
       {
         loader: 'ts-loader',
         exclude: [/node_modules/, /src/, /outfrontend/],
         options: {
-          configFile: 'worker.tsconfig.json',
+          configFile: 'worker/tsconfig.json',
         },
       },
     ],

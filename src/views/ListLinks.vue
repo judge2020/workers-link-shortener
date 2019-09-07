@@ -12,9 +12,12 @@
                             <br>
                             <small>Note: This will show a maximum of 1000 links.</small>
                         </p>
-                        <a class="panel-block" v-for="link in links">
+                        <a class="panel-block" v-for="link in links" :key="link.name">
                             <span class="panel-icon">
-                                <i aria-hidden="true" class="fas fa-times-circle hoverRed" @click="doDelete(link.name)"></i>
+                                <i
+                                aria-hidden="true"
+                                class="fas fa-times-circle hoverRed"
+                                @click="doDelete(link.name)"></i>
                             </span>
                             {{link.name.substr(1)}}
                         </a>
@@ -27,39 +30,40 @@
     </div>
 </template>
 <script lang="ts">
-    import HeroHeader from '@/components/HeroHeader.vue'
-    import Axios from '@/axios'
+import HeroHeader from '@/components/HeroHeader.vue';
+import Axios from '@/axios';
 
-    export default {
-        name: 'ListLinks',
-        components: { HeroHeader },
-        data() {
-            return {
-                links: [],
-            }
-        },
-        mounted() {
-            // @ts-ignore
-            this.init()
-        },
-        methods: {
-            doDelete(name: string) {
-                if (confirm(`Delete shortlink ${name.substr(1)}?`)) {
-                    Axios.post('delete', {'path': name}).then(res => {
-                        alert(res.data);
-                    })
-                }
-            },
-            init() {
-                Axios.get('list').then(res => {
-                    if (res.status === 200) {
-                        // @ts-ignore
-                        this.links = res.data
-                    }
-                })
-            },
-        },
-    }
+export default {
+  name: 'ListLinks',
+  components: { HeroHeader },
+  data() {
+    return {
+      links: [],
+    };
+  },
+  mounted() {
+    // @ts-ignore
+    this.init();
+  },
+  methods: {
+    doDelete(name: string) {
+      // eslint-disable-next-line no-restricted-globals
+      if (confirm(`Delete shortlink ${name.substr(1)}?`)) { // eslint-disable-line no-alert
+        Axios.post('delete', { path: name }).then((res) => {
+          alert(res.data); // eslint-disable-line no-alert
+        });
+      }
+    },
+    init() {
+      Axios.get('list').then((res) => {
+        if (res.status === 200) {
+          // @ts-ignore
+          this.links = res.data;
+        }
+      });
+    },
+  },
+};
 
 </script>
 

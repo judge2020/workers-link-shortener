@@ -10,10 +10,10 @@
 
 <script lang="ts">
 
-    export default {
-        name: 'HeroHeader',
-        props: {
-            pagename: String,
-        },
-    }
+export default {
+  name: 'HeroHeader',
+  props: {
+    pagename: String,
+  },
+};
 </script>
