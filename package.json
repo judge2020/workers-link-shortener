@@ -12,7 +12,7 @@
         "buildworker": "webpack --config worker.webpack.config.js"
     },
     "dependencies": {
-        "axios": "^0.19.0",
+        "axios": "^0.21.1",
         "bulma": "^0.7.5",
         "cloudflare-file-hosting": "^0.1.4",
         "cloudflare-workers-toolkit": "^0.1.0",
