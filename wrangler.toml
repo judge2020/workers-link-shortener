@@ -1,0 +1,20 @@
+name = "workers-link-shortener"
+type = "javascript"
+zone_id = ""
+account_id = ""
+route = ""
+workers_dev = true
+
+[build]
+command = "npm install && npm run buildworker"
+[build.upload]
+format = "modules"
+dir = "out"
+main = "./worker.mjs"
+
+[site]
+bucket = "./dist"
+entry-point = "src"
+
+[durable_objects]
+bindings = [{name = "LINK", class_name = "Link"}]

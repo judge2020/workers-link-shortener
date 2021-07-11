@@ -1,23 +1,18 @@
 <template>
-    <div class="home">
-        <hero-header pagename="Workers Link Shortener"/>
-        <br>
-        <p>
-            More stuff will be here in the future.
-        </p>
-        <p>Remember that there is no authentication for the admin page by default.
-            It is recommended to set up CF access.</p>
-    </div>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HeroHeader from '@/components/HeroHeader.vue';
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
-export default {
-  name: 'home',
+@Options({
   components: {
-    HeroHeader,
+    HelloWorld,
   },
-};
+})
+export default class Home extends Vue {}
 </script>
