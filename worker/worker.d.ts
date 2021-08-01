@@ -1,4 +1,4 @@
 interface Env {
     LINK: DurableObjectNamespace
-    LINK_LIST: KVNamespace
+    WLS_LINK_LIST: KVNamespace
 }

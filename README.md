@@ -4,25 +4,21 @@ A link shortener built on Cloudflare Workers utilizing Durable Objects to provid
 
 This is not backwards compatible with Workers Link Shortener v1.
 
-## Project setup
-```
-npm install
-```
+## dev
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Prerequisites: node LTS, wrangler
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1. clone repository and open in vscode/console
+2. run `npm install`
+3. edit `wrangler.toml` and set account_id to your account id
+4. generate a KV namespace like so (the name can be different if you wish):
 
-### Lints and fixes files
+```bash
+wrangler kv:namespace create WLS_LINK_LIST
 ```
-npm run lint
-```
+5. Append the KV namespace config it gives you to your `wrangler.toml`
+6. run `npm run build` (builds the frontend, however it is non-functional for now, see https://github.com/judge2020/workers-link-shortener/issues/21)
+7. run `wrangler publish`
 
-### Customize configuration
+### Customize frontend configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
