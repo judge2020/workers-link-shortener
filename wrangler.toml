@@ -18,3 +18,9 @@ entry-point = "src"
 
 [durable_objects]
 bindings = [{name = "LINK", class_name = "Link"}]
+
+[miniflare]
+durable_objects_persist = true
+kv_persist = true
+cache_persist = true
+port = 8989
